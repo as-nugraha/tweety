@@ -1,16 +1,27 @@
 <template>
-  <div class="home">
+  <div class="home pt-4">
     <!-- header -->
-    <HeaderComp/>
+    <!-- <HeaderComp/> -->
 
     <div class="row">
       <!-- sidebar -->
       <div class="col-md-4">
         <SidebarComp/>
       </div>
-      <!-- isi -->
+
+      <!-- tweets -->
       <div class="col-md-4">
-asd
+        <div class="row">
+          
+          <!-- input tweet -->
+          <div class="col-md-12">
+            <InputTweet/>
+          </div>
+
+          <!-- posted -->
+          <PostComp v-for="post in tweets" :key="post.id" :item="post"/>
+
+        </div>
       </div>
 
       <div class="col-md-4">
@@ -23,14 +34,22 @@ asd
 
 <script>
 // @ is an alias to /src
-import HeaderComp from '@/components/HeaderComp.vue'
+// import HeaderComp from '@/components/HeaderComp.vue'
 import SidebarComp from '@/components/SidebarComp.vue'
+import PostComp from '@/components/PostComp.vue'
+import InputTweet from '@/components/InputTweet.vue'
 
 export default {
   name: 'HomeView',
   components: {
-    HeaderComp,
-    SidebarComp
+    SidebarComp,
+    PostComp,
+    InputTweet,
+  },
+  computed: {
+    tweets() {
+      return this.$store.getters.getTweets
+    }
   }
 }
 </script>
