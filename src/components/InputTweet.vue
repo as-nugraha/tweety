@@ -1,11 +1,11 @@
 <template>
-    <div class="card mb-2">
+    <div class="card rounded-4 mb-2">
         <div class="card-body">
             <!-- input post -->
-            <textarea class="form-control mb-2" v-model="tweet" cols="30" rows="3"></textarea>
+            <textarea class="form-control mb-2" v-model="tweet" cols="30" rows="3" placeholder="what is happening now"></textarea>
             <!-- button post -->
             <div class="text-right">
-                <button class="btn btn-primary" @click="postTweet()">Post</button>
+                <button class="btn btn-primary rounded-pill fw-bold btn-post" @click="postTweet()">Post</button>
             </div>
         </div>
     </div>
@@ -20,8 +20,10 @@ export default {
     },
     methods: {
         postTweet() {
-            this.$store.commit('addTweet', this.tweet);
-            this.tweet = null
+            if (this.tweet) {
+                this.$store.commit('addTweet', this.tweet);
+                this.tweet = null
+            }
         }
     },
 }

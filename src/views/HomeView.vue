@@ -5,7 +5,7 @@
 
     <div class="row">
       <!-- sidebar -->
-      <div class="col-md-4">
+      <div class="col-md-2 offset-md-2">
         <SidebarComp/>
       </div>
 
@@ -24,8 +24,8 @@
         </div>
       </div>
 
-      <div class="col-md-4">
-
+      <div class="col-md-2">
+        <TrendingComp/>
       </div>
     </div>
     
@@ -34,8 +34,8 @@
 
 <script>
 // @ is an alias to /src
-// import HeaderComp from '@/components/HeaderComp.vue'
 import SidebarComp from '@/components/SidebarComp.vue'
+import TrendingComp from '@/components/TrendingComp.vue'
 import PostComp from '@/components/PostComp.vue'
 import InputTweet from '@/components/InputTweet.vue'
 
@@ -43,6 +43,7 @@ export default {
   name: 'HomeView',
   components: {
     SidebarComp,
+    TrendingComp,
     PostComp,
     InputTweet,
   },
